@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Earth Community Market | Blue Earth Community Market</title>
+    <meta name="description" content="Local food, local makers, local community. Join us every Saturday morning in Blue Earth, Minnesota.">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VSB84R6QC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2VSB84R6QC');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #f7f3ec;
+            --warm-white: #fdfaf5;
+            --brown-dark: #3b2a1a;
+            --brown-mid: #6b4c2a;
+            --brown-light: #a07850;
+            --green-dark: #3d5a2e;
+            --green-mid: #5a7a40;
+            --green-light: #8aaa6a;
+            --gold: #c8a04a;
+            --border: #c4a87a;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--brown-dark);
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        .site-nav {
+            background-color: var(--brown-dark);
+            padding: 0 20px;
+        }
+
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 44px;
+            width: 44px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 8px 10px;
+            border-radius: 999px;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--brown-mid);
+            color: var(--gold);
+        }
+
+        /* DROPDOWN MENU */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle::after {
+            content: ' ▼';
+            font-size: 0.62rem;
+            margin-left: 6px;
+        }
+
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--brown-dark);
+            border: 1px solid var(--brown-mid);
+            border-radius: 4px;
+            min-width: 180px;
+            list-style: none;
+            padding: 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 200;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            display: block;
+        }
+
+        .nav-dropdown-menu li {
+            margin: 0;
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 8px 16px;
+            border-radius: 0;
+            font-size: 0.85rem;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: var(--brown-mid);
+            color: var(--gold);
+        }
+
+        /* HERO (homepage only) */
+        .hero {
+            background: var(--brown-dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 70px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('/assets/logo.jpg') center/cover no-repeat;
+            opacity: 0.06;
+        }
+
+        .hero-inner {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero img.hero-logo {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--cream);
+        }
+
+        .hero .hero-sub {
+            font-size: 1.15rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero .hero-desc {
+            font-size: 1.05rem;
+            color: #d4c9b8;
+            max-width: 520px;
+            margin: 0 auto 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* MAIN CONTENT */
+        .site-main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* PAGE HEADER (non-hero pages) */
+        .page-header {
+            background: var(--brown-dark);
+            color: var(--cream);
+            padding: 42px 20px 36px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--cream);
+        }
+
+        .page-header p {
+            color: var(--gold);
+            margin-top: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        /* CARDS / SECTIONS */
+        .card {
+            background: var(--warm-white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 32px;
+            margin-bottom: 28px;
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--brown-dark);
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--brown-mid);
+            margin: 18px 0 8px;
+        }
+
+        .card p {
+            color: #4a3828;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            color: #4a3828;
+        }
+
+        .card ul li {
+            margin-bottom: 6px;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            margin-bottom: 6px;
+        }
+
+        /* 2-COL GRID */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--green-dark);
+            color: var(--cream);
+            border: 2px solid var(--green-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-mid);
+            border-color: var(--green-mid);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--cream);
+            border: 2px solid var(--cream);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .btn-brown {
+            background: var(--brown-mid);
+            color: var(--cream);
+            border: 2px solid var(--brown-mid);
+        }
+
+        .btn-brown:hover {
+            background: var(--brown-dark);
+            border-color: var(--brown-dark);
+        }
+
+        /* DIVIDER */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+
+        /* TAG */
+        .tag {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--brown-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .tag-gold {
+            background: var(--gold);
+        }
+
+        /* BLOG POST LIST */
+        .post-list {
+            list-style: none;
+        }
+
+        .post-list li {
+            border-bottom: 1px solid var(--border);
+            padding: 22px 0;
+        }
+
+        .post-list li:last-child {
+            border-bottom: none;
+        }
+
+        .post-meta {
+            font-size: 0.82rem;
+            color: var(--brown-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 6px;
+        }
+
+        .post-list h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .post-list h3 a {
+            color: var(--brown-dark);
+            text-decoration: none;
+        }
+
+        .post-list h3 a:hover {
+            color: var(--green-dark);
+        }
+
+        .post-list p {
+            color: #5a4535;
+            font-size: 0.97rem;
+        }
+
+        /* CALENDAR TABLE */
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.97rem;
+        }
+
+        .calendar-table th {
+            background: var(--brown-dark);
+            color: var(--cream);
+            font-family: 'Playfair Display', serif;
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        .calendar-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: #4a3828;
+        }
+
+        .calendar-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .calendar-table tr:nth-child(even) td {
+            background: #f3ede3;
+        }
+
+        .calendar-table .market-date {
+            font-weight: 700;
+            color: var(--brown-dark);
+            white-space: nowrap;
+        }
+
+        .calendar-table .market-date-note {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--green-dark);
+            white-space: normal;
+        }
+
+        .calendar-table .openmic-link {
+            color: var(--green-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .calendar-table .openmic-link:hover {
+            text-decoration: underline;
+        }
+
+        .calendar-table .grand-opening {
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        /* MOBILE RESPONSIVE CALENDAR */
+        @media (max-width: 768px) {
+            .calendar-table {
+                font-size: 0.9rem;
+            }
+            
+            .calendar-table th,
+            .calendar-table td {
+                padding: 8px 10px;
+            }
+            
+            .calendar-table th:first-child,
+            .calendar-table td:first-child {
+                width: 140px;
+                min-width: 140px;
+            }
+            
+            .calendar-table th:last-child,
+            .calendar-table td:last-child {
+                width: 120px;
+                min-width: 120px;
+            }
+            
+            .calendar-table .market-date {
+                font-size: 0.85rem;
+                line-height: 1.3;
+            }
+
+            .calendar-table .market-date-note {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-table {
+                font-size: 0.8rem;
+            }
+            
+            .calendar-table th,
+            .calendar-table td {
+                padding: 6px 8px;
+            }
+            
+            .calendar-table th:first-child,
+            .calendar-table td:first-child {
+                width: 110px;
+                min-width: 110px;
+            }
+            
+            .calendar-table th:last-child,
+            .calendar-table td:last-child {
+                width: 100px;
+                min-width: 100px;
+            }
+            
+            .calendar-table .market-date {
+                font-size: 0.75rem;
+                line-height: 1.2;
+            }
+
+            .calendar-table .market-date-note {
+                font-size: 0.68rem;
+            }
+            
+            .tag {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                margin: 2px;
+            }
+        }
+
+        /* FACEBOOK SECTION */
+        .fb-section {
+            background: var(--warm-white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .fb-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .fb-section p {
+            color: #4a3828;
+            margin-bottom: 20px;
+        }
+
+        .fb-embed-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* FORM */
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--brown-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.97rem;
+            color: var(--brown-dark);
+        }
+
+        .form-field textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: 2px solid var(--green-mid);
+            border-color: var(--green-mid);
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--brown-light);
+            margin-top: 5px;
+        }
+
+        .form-submit {
+            margin-top: 10px;
+        }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: var(--green-dark);
+            color: var(--cream);
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+        }
+
+        .highlight-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .highlight-box p {
+            color: #c8ddaa;
+        }
+
+        .highlight-box a {
+            color: var(--gold);
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background: var(--brown-dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 36px 20px;
+            margin-top: 20px;
+        }
+
+        .site-footer p {
+            font-size: 0.92rem;
+            opacity: 0.85;
+            margin-bottom: 4px;
+        }
+
+        .site-footer .footer-links {
+            margin-top: 14px;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .site-footer .footer-links a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .site-footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* HAMBURGER */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--cream);
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        /* RESPONSIVE NAV */
+        @media (max-width: 640px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--brown-dark);
+                padding: 12px 20px 20px;
+                gap: 4px;
+                z-index: 100;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 10px 14px;
+                border-radius: 4px;
+            }
+
+            /* Mobile dropdown */
+            .nav-dropdown-menu {
+                position: static;
+                display: none;
+                background: var(--brown-mid);
+                border: none;
+                box-shadow: none;
+                margin-left: 16px;
+                padding: 4px 0;
+            }
+
+            .nav-dropdown:hover .nav-dropdown-menu,
+            .nav-dropdown.open .nav-dropdown-menu {
+                display: block;
+            }
+
+            .nav-dropdown-toggle {
+                cursor: pointer;
+            }
+
+            .site-nav {
+                position: relative;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero img.hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="/assets/logo.jpg" alt="Blue Earth Community Market logo">
+                <span class="nav-logo-text">Blue Earth<br>Community Market</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/calendar/" >Calendar</a></li>
+                <li><a href="/news/" >News</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">Vendors</a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/vendor-spotlight/" >Vendor Spotlight</a></li>
+                        <li><a href="/vendors/" >Become a Vendor</a></li>
+                        <li><a href="/open-mic/" >Open Mic</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">Ryno Community Lot</a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/open-mic/" >Open Mic</a></li>
+                        <li><a href="/ryno-food-lot/" >Ryno Food Lot</a></li>
+                        <li><a href="/rynos-rockin-roll-in/" >Rockin' Roll-In</a></li>
+                        <li><a href="/hi-way-motorfest/" >Hi-Way Motorfest</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <img src="/assets/logo.jpg" alt="Blue Earth Community Market" class="hero-logo">
+        <p class="hero-sub">Saturdays 10am &ndash; 1pm &bull; May through October</p>
+        <p class="hero-desc">A community gathering place in the heart of Blue Earth, Minnesota. Fresh produce, homemade goods, local makers, and good neighbors.</p>
+        <div class="hero-buttons">
+            <a href="/news/" class="btn btn-primary">News &amp; Events</a>
+            <a href="/vendors/" class="btn btn-outline">Become a Vendor</a>
+        </div>
+    </div>
+</section>
+
+<main class="site-main">
+
+    <!-- ABOUT -->
+    <div class="card">
+        <div class="section-label">About the Market</div>
+        <h2>Welcome to the Blue Earth Community Market</h2>
+        <p>Every Saturday morning from May through October, the Blue Earth Community Market brings together local growers, bakers, makers, and neighbors at 112 S Grove St. Whether you're picking up fresh vegetables, handmade goods, or just stopping by to say hello, there's always something to discover.</p>
+        <p>We believe a farmers market is more than a place to shop. It's a place to connect, support local livelihoods, and celebrate what our community grows and creates.</p>
+        <p style="margin-top: 16px;"><a href="/calendar/" class="btn btn-brown">See the 2026 Season Calendar</a></p>
+    </div>
+
+    <!-- INFO GRID -->
+    <div class="grid-2">
+        <div class="card">
+            <div class="section-label">When &amp; Where</div>
+            <h2>Find Us</h2>
+            <h3>Location</h3>
+            <p>112 S Grove St<br>Blue Earth, Minnesota</p>
+            <h3>Hours</h3>
+            <p>Saturdays, 10:00am &ndash; 1:00pm<br>May 2 through October 2026</p>
+            <h3>Parking</h3>
+            <p>Customer parking along the fence side of the property. Street parking also available nearby.</p>
+        </div>
+
+        <div class="card">
+            <div class="section-label">At the Market</div>
+            <h2>What to Expect</h2>
+            <ul>
+                <li>Fresh produce and farm goods</li>
+                <li>Homemade baked goods</li>
+                <li>Handmade crafts and specialty items</li>
+                <li>Food trucks (when available)</li>
+                <li>Community events and live music</li>
+                <li>Leashed pets welcome</li>
+                <li>Indoor option available in bad weather</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- NEWS PREVIEW -->
+    <div class="card">
+        <div class="section-label">Latest Updates</div>
+        <h2>News &amp; Events</h2>
+        
+        
+        <ul class="post-list">
+            
+            <li>
+                <div class="post-meta">June 30, 2026 &bull; <span class="tag">open mic</span><span class="tag">live music</span><span class="tag">ryno community lot</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/06/30/rob-milton-july-25-open-mic/">Rob Milton Joins the July 25 Open Mic Lineup</a></h3>
+                <p>We have another local musician lined up for the Blue Earth Community Market open mic.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 30, 2026 &bull; <span class="tag">vendor preview</span><span class="tag">produce</span><span class="tag">july 4</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/06/30/goemann-produce-july-4-preview/">Goemann Produce Preview for the July 4 Market</a></h3>
+                <p>If you are planning to shop the Saturday, July 4 Blue Earth Community Market, Goemann Produce shared a fresh preview of what they expect to have at the booth this...</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/06/30/vendor-spotlight-codys-cookie-confections/">Vendor Spotlight: Cody's Cookie Confections</a></h3>
+                <p>We’re excited to spotlight Cody’s Cookie Confections, a beach-themed cookie and collectible sticker brand bringing a fun mix of sweets, creativity, and character to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">candles</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/06/30/vendor-spotlight-godscent-candles/">Vendor Spotlight: GodScent Candles</a></h3>
+                <p>We’re excited to spotlight GodScent Candles, a handmade candle business bringing warm, giftable home fragrance products to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">produce</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/06/30/vendor-spotlight-hannahs-happy-hens/">Vendor Spotlight: Hannah's Happy Hens</a></h3>
+                <p>We’re happy to spotlight Hannah’s Happy Hens, a farm-fresh booth bringing both chicken eggs and duck eggs to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">food</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/06/30/vendor-spotlight-the-mustard-tree/">Vendor Spotlight: The Mustard Tree</a></h3>
+                <p>We’re glad to spotlight The Mustard Tree, a small-batch vendor bringing spiced honey, herbal teas, and handcrafted salves to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 17, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">food</span><span class="tag">rockin ryno market takeover week</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/06/17/vitas-tamales-rockin-ryno-market-takeover-week/">Vita's Tamales Joins Rockin' Ryno Market Takeover Week</a></h3>
+                <p>ROCKIN’ RYNO MARKET TAKEOVER WEEK keeps bringing the flavor.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 17, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">coffee</span><span class="tag">rockin ryno market takeover week</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/06/17/hygge-coffee-rockin-ryno-market-takeover-week/">Hygge Coffee Joins Rockin' Ryno Market Takeover Week</a></h3>
+                <p>ROCKIN’ RYNO MARKET TAKEOVER WEEK keeps pouring on the good stuff.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 17, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">handmade</span><span class="tag">rockin ryno market takeover week</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/06/17/axels-fishing-tails-rockin-ryno-market-takeover-week/">Axel's Fishing Tails Joins Rockin' Ryno Market Takeover Week</a></h3>
+                <p>ROCKIN’ RYNO MARKET TAKEOVER WEEK keeps reeling in the crowd.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">June 17, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">baked goods</span><span class="tag">rockin ryno market takeover week</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/06/17/creative-cakes-by-val-rockin-ryno-market-takeover-week/">Creative Cakes by Val Joins Rockin' Ryno Market Takeover Week</a></h3>
+                <p>ROCKIN’ RYNO MARKET TAKEOVER WEEK keeps serving up the hits.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 28, 2026 &bull; <span class="tag">open mic</span><span class="tag">live music</span><span class="tag">ryno community lot</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/05/28/open-mic-is-live/">Open Mic Signup Is Live</a></h3>
+                <p>Open mic is officially live at the Ryno Community Lot.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 25, 2026 &bull; <span class="tag">ryno community lot</span><span class="tag">live music</span><span class="tag">food trucks</span><span class="tag">events</span></div>
+                <h3><a href="/news/2026/05/25/rynos-rockin-roll-in-kicks-off-this-week/">Ryno's Rockin' Roll-In Kicks Off This Week</a></h3>
+                <p>Good music. Good people. Good vibes.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 18, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">skincare</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/18/vendor-spotlight-house-of-favor-tallow/">Vendor Spotlight: House of Favor Tallow</a></h3>
+                <p>We’re happy to spotlight House of Favor Tallow, a small-batch skincare business bringing handcrafted tallow-based products to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 11, 2026 &bull; <span class="tag">market recap</span><span class="tag">community</span></div>
+                <h3><a href="/news/2026/05/11/another-beautiful-market-day/">Another Beautiful Day at the Market</a></h3>
+                <p>What a beautiful day we had at the Blue Earth Community Market this past Saturday.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 8, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">prepared food</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/08/vendor-spotlight-danas-mexican-food-snacks/">Vendor Spotlight: Dana's Mexican Food /Snacks</a></h3>
+                <p>We’re excited to spotlight Dana’s Mexican Food /Snacks, a new prepared food vendor joining the Blue Earth Community Market lineup.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 7, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">desserts</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/07/vendor-spotlight-sweet-escape-by-danibel/">Vendor Spotlight: Sweet Escape by Danibel</a></h3>
+                <p>We’re happy to spotlight Sweet Escape by Danibel, one of the newer vendor names customers will see at the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 6, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/06/vendor-spotlight-impresiones-bonita/">Vendor Spotlight: Impresiones Bonita</a></h3>
+                <p>We’re excited to spotlight Impresiones Bonita, a new bakery vendor bringing rich homemade cakes and desserts to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 5, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">specialty food</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/05/vendor-spotlight-canna-culture/">Vendor Spotlight: Canna Culture</a></h3>
+                <p>We’re glad to spotlight Canna Culture, a new vendor bringing mushroom based products and specialty food items to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 5, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">handmade</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/05/vendor-spotlight-axels-fishing-tails/">Vendor Spotlight: Axel's Fishing Tails</a></h3>
+                <p>We’re happy to spotlight Axel’s Fishing Tails, a young local maker bringing handmade fishing lures to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 4, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">food</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/04/vendor-spotlight-jammin-on-the-border/">Vendor Spotlight: Jammin' On The Border</a></h3>
+                <p>We’re excited to spotlight Jammin’ On The Border, a new vendor bringing homemade jams, jellies, and mustards to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 4, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/04/vendor-spotlight-grain-and-gather-co/">Vendor Spotlight: Grain & Gather Co</a></h3>
+                <p>We’re glad to spotlight Grain &amp; Gather Co, a new bakery vendor joining the Blue Earth Community Market community.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 3, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">produce</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/03/vendor-spotlight-goemann-produce/">Vendor Spotlight: Goemann Produce</a></h3>
+                <p>We’re happy to spotlight Goemann Produce, bringing fresh vegetables and farm eggs to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 3, 2026 &bull; <span class="tag">market recap</span><span class="tag">community</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/03/our-first-market-was-a-huge-success/">Our First Market of 2026 Was a Huge Success</a></h3>
+                <p>From the bottom of our hearts, thank you to our amazing vendors and community for showing up in such a big way for our first market of the season.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 2, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">art</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/02/vendor-spotlight-beautiful-brushstrokes/">Vendor Spotlight: Beautiful Brushstrokes</a></h3>
+                <p>We’re happy to spotlight Beautiful Brushstrokes, one of the creative vendors joining us for opening day at the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 1, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">homestead</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/01/vendor-spotlight-sassy-sprouts-homestead/">Vendor Spotlight: Sassy Sprouts Homestead</a></h3>
+                <p>We’re glad to spotlight Sassy Sprouts Homestead, a vendor bringing a warm mix of home and handmade goods to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 1, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">food</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/01/vendor-spotlight-little-reds-seasoning/">Vendor Spotlight: Little Reds Seasoning</a></h3>
+                <p>We’re excited to spotlight Little Reds Seasoning, joining the Blue Earth Community Market for opening day with flavorful seasoning blends and a creative local touch.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">May 1, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/05/01/vendor-spotlight-blue-earth-cooperative-bakery/">Vendor Spotlight: Blue Earth Cooperative Bakery</a></h3>
+                <p>We’re proud to spotlight Blue Earth Cooperative Bakery, a weekly market favorite known for artisan bakes made right here in Blue Earth.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">farm</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/30/vendor-spotlight-steele-family-farm/">Vendor Spotlight: Steele Family Farm</a></h3>
+                <p>We’re happy to spotlight Steele Family Farm, one of the vendors joining us for opening day with farm fresh goods and more to come later in the season.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">handmade</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/30/vendor-spotlight-unique-items-by-april/">Vendor Spotlight: Unique Items by April</a></h3>
+                <p>We’re glad to spotlight Unique Items by April, a booth full of creative finds and fun variety for opening day at the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 30, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/30/vendor-spotlight-cookies-bars-and-jars/">Vendor Spotlight: Cookies Bars & Jars</a></h3>
+                <p>We’re excited to spotlight Cookies Bars &amp; Jars, a Blue Earth vendor bringing a homemade mix of breads, treats, and canned goods to opening day.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 29, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">books</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/29/vendor-spotlight-river-shark-books/">Vendor Spotlight: River Shark Books</a></h3>
+                <p>We’re happy to spotlight River Shark Books, a local author booth that adds stories, creativity, and conversation to market day.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 29, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">handmade</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/29/vendor-spotlight-ghostly-paracord/">Vendor Spotlight: Ghostly Paracord</a></h3>
+                <p>We’re excited to spotlight Ghostly Paracord, a creative handmade vendor bringing durable paracord goods to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 29, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">wellness</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/29/vendor-spotlight-alluring-tranquility/">Vendor Spotlight: Alluring Tranquility</a></h3>
+                <p>We’re glad to spotlight Alluring Tranquility, a Blue Earth Community Market vendor bringing a thoughtful mix of skincare, candles, soaps, and wellness-focused gifts to opening day.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 28, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">food</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/28/vendor-spotlight-vitas-tamales/">Vendor Spotlight: Vita's Tamales</a></h3>
+                <p>We are excited to spotlight Vita’s Tamales, bringing traditional Mexican food and family recipes to the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 28, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">plants</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/28/vendor-spotlight-prop-able/">Vendor Spotlight: Prop-Able</a></h3>
+                <p>Say hello to Prop-Able, an experimental growing operation rooted in sustainability, curiosity, and community.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 27, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/27/vendor-spotlight-the-one-n-only-sweet-spot/">Vendor Spotlight: The One n Only Sweet Spot</a></h3>
+                <p>If you have a sweet tooth, you will want to keep an eye out for The One n Only Sweet Spot at the Blue Earth Community Market.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 27, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">community</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/27/vendor-spotlight-little-ryno-stand/">Vendor Spotlight: Little Ryno Stand</a></h3>
+                <p>Little Ryno Stand is one of those booths that adds something extra to market day.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 27, 2026 &bull; <span class="tag">vendor spotlight</span><span class="tag">bakery</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/27/vendor-spotlight-bread-and-book-bakery/">Vendor Spotlight: Bread and Book Bakery</a></h3>
+                <p>We’re excited to spotlight Bread and Book Bakery, a cozy Blue Earth business where loaves meet literature.
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 18, 2026 &bull; <span class="tag">announcement</span><span class="tag">grand opening</span><span class="tag">vendors</span></div>
+                <h3><a href="/news/2026/04/18/grand-opening-is-almost-here/">Grand Opening is Almost Here! Join Us May 2</a></h3>
+                <p>Two weeks to go! The Blue Earth Community Market opens for the 2026 season on Saturday, May 2 from 10am to 1pm at the Ryno Community Lot (112 S. Grove...</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">April 9, 2026 &bull; <span class="tag">news</span><span class="tag">history</span><span class="tag">story</span></div>
+                <h3><a href="/news/2026/04/09/market-history/">From Juba's to the Ryno Lot: The Story of the Blue Earth Community Market</a></h3>
+                <p>By Flower, Blue Earth Community Market
+
+</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">March 30, 2026 &bull; <span class="tag">announcement</span><span class="tag">website</span></div>
+                <h3><a href="/news/2026/03/30/welcome-to-our-new-website/">Welcome to Our Brand New Website! 🌻</a></h3>
+                <p>Hey Blue Earth community! We’re so excited to share our shiny new website with you. After months of planning and building, we finally have a digital home that showcases everything...</p>
+            </li>
+            
+            <li>
+                <div class="post-meta">March 23, 2026 &bull; <span class="tag">announcement</span><span class="tag">grand opening</span></div>
+                <h3><a href="/news/2026/03/23/grand-opening-may-2/">Grand Opening: May 2, 2026</a></h3>
+                <p>Mark your calendars! The Blue Earth Community Market opens for the 2026 season on Saturday, May 2nd.
+
+</p>
+            </li>
+            
+        </ul>
+        <p style="margin-top: 18px;"><a href="/news/" class="btn btn-brown">All News &amp; Events</a></p>
+        
+    </div>
+
+    <!-- FACEBOOK -->
+    <div class="fb-section">
+        <div class="section-label">Stay Connected</div>
+        <h2>Follow Us on Facebook</h2>
+        <p>Get the latest vendor announcements, event previews, and market photos. Join our Facebook community and stay in the loop all season long.</p>
+        <a href="https://www.facebook.com/share/1BiTzAtMjP/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-brown">Follow Us on Facebook</a>
+    </div>
+
+</main>
+
+
+    <script>
+        // Mobile dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+            dropdownToggles.forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 640) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle('open');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <footer class="site-footer">
+        <p><strong>Blue Earth Community Market</strong></p>
+        <p>112 S Grove St, Blue Earth, Minnesota</p>
+        <p>Saturdays 10a–1p, May through October</p>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/share/1BiTzAtMjP/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+            <a href="/vendors/">Vendor Signup</a>
+            <a href="/calendar/">Market Calendar</a>
+            <a href="mailto:info@blueearthcommunitymarket.com">info@blueearthcommunitymarket.com</a>
+        </div>
+    </footer>
+</body>
+</html>
